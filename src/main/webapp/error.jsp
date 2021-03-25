@@ -1,6 +1,5 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" isErrorPage="true"%>
 <%@page isELIgnored="false"%>
-
 
 <!DOCTYPE html>
 
@@ -8,7 +7,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Home Page</title>
+	<title>Login Page</title>
 	<link type="text/css" rel="stylesheet" href="resources/css/style.css" />
 </head>
 
@@ -27,13 +26,25 @@
 		</header>	
 		
 		<main class="main-login">	
-			
-			<h1>Welcome ${engineering_user.username}</h1>
-			
-			<form name="formlogout" action="logout">
-				<button type="submit" value="logout" name="logout">Log Out</button>	
-			</form>
 		
+			<h1 style="color: red">ERROR!</h1>
+			
+			<form name="form">
+			
+				<label>
+					<%
+						Object result = request.getAttribute("result");
+						if(result!=null){
+							out.println(result);
+						}else{
+							out.println("Unknown!");
+						}
+					%>
+				</label>
+									
+			
+			</form>
+			
 			
 			
 		</main>	

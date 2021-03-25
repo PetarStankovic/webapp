@@ -1,0 +1,169 @@
+body {
+	margin: 0;
+}
+
+.site-container-div {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+header {
+	background-color: #92a8d1;
+}
+
+#nav-list {
+	display: flex;
+	list-style: none;
+	font-family: Arial, sans-serif;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#nav-list li {
+	margin: 5px 20px 5px 20px;
+}
+
+#nav-list li a {
+	color: black;
+	text-decoration: none;
+}
+
+#nav-list li a:hover {
+	color: #E4ECF0;
+}
+
+main {
+	flex: 1;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+#h1-title {
+	margin-left: 25px;
+}
+
+.main-login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-login form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 30%;
+}
+
+.main-login form button {
+	min-width: 30%;
+}
+
+.main-login form label, input, button {
+	margin: 5px;
+}
+
+.main-login h1 {
+	font-family: Arial, sans-serif;
+	font-size: 210%;
+	font-weight: bold;
+}
+
+.main-login form label, form button {
+	font-family: Arial, sans-serif;
+	font-size: 120%;
+	color: #444f63;
+}
+
+.main-login form input {
+	font-family: Arial, sans-serif;
+	font-size: 110%;
+	color: #444f63;
+}
+
+form button {
+	background-color: #E4ECF0;
+}
+
+form button:hover {
+	background-color: #92a8d1;
+	color: black;
+}
+
+.paragraphs-container-div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.paragraphs-container-div #p-left {
+	padding: 0 25px 25px 25px;
+	border-right: 1px solid black;
+}
+
+.paragraphs-container-div #p-right {
+	padding: 0 25px 25px 25px;
+	border-left: 1px solid black;
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 15vh;
+	background-color: #E4ECF0;
+}
+
+.footer-icon-div {
+	margin-left: 5%;
+}
+
+.footer-icon-div a {
+	margin-right: 20px;
+}
+
+.footer-paragraph-div {
+	width: 30%;
+	margin-right: 5%;
+}
+
+@media only screen and (max-width: 800px) {
+	header {
+		display: flex;
+		justify-content: center;
+	}
+	#nav-list {
+		flex-direction: column;
+	}
+	#h1-title {
+		margin-left: 45px;
+	}
+	main {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.paragraphs-container-div {
+		flex-direction: column;
+		justify-content: space-around;
+		margin: 20px;
+	}
+	.paragraphs-container-div #p-left {
+		margin-bottom: 0px;
+		border-right: 0px;
+		border-bottom: 1px solid black;
+	}
+	.paragraphs-container-div #p-right {
+		margin-top: 0px;
+		border-left: 0px;
+		padding-top: 25px;
+		border-top: 1px solid black;
+	}
+	footer {
+		justify-content: center;
+	}
+	.footer-icon-div {
+		display: none;
+	}
+}
+}

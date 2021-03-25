@@ -1,14 +1,13 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@page isELIgnored="false"%>
 
-
 <!DOCTYPE html>
 
 <html>
 
 <head>
 	<meta charset="UTF-8">
-	<title>Home Page</title>
+	<title>Login Page</title>
 	<link type="text/css" rel="stylesheet" href="resources/css/style.css" />
 </head>
 
@@ -27,11 +26,20 @@
 		</header>	
 		
 		<main class="main-login">	
+		
+			<h1>Log In</h1>
 			
-			<h1>Welcome ${engineering_user.username}</h1>
+			<form name="form" method="post" action="login">
 			
-			<form name="formlogout" action="logout">
-				<button type="submit" value="logout" name="logout">Log Out</button>	
+				<label for="email">Email:</label>
+				<input type="text" name="email"  placeholder="example@gmail.com"/>
+				
+				<label for="password" >Password:</label>
+				<input type="Password" name="password"/>				
+					
+				<button type="submit">Log In</button>
+							
+			
 			</form>
 		
 			
