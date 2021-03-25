@@ -31,7 +31,7 @@
 			
 			<h1>${engineering_user.username}, you can update the city here:</h2>
 			
-			<form name="city-form" method="post" action="cityadd">
+			<form name="city-form" method="post" action="cityupdate">
 			
 				<label for="postCode">Postal Code:</label>
 				<input type="number" name="postCode"/>

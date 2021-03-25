@@ -39,7 +39,7 @@
 				<label for="name" >City Name:</label>
 				<input type="text" name="name"/>
 				
-				<button type="submit" value="add" name="add">Add City</button>				
+				<button type="submit" value="add" name="add">Submit</button>				
 				
 			</form>	
 		</main>	

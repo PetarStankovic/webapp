@@ -24,6 +24,8 @@ public class CityDelete extends HttpServlet {
 		int index = Integer.parseInt(indexParam);
 
 		List<City> list = (List<City>) request.getServletContext().getAttribute("cities");
+
+		System.out.println("SERVER: Deleted " + list.get(index));
 		list.remove(index);
 
 		request.getRequestDispatcher("/navigation?link=cities").forward(request, response);

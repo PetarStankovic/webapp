@@ -32,8 +32,10 @@
 			
 			<form name="formlogout" action="logout">
 							
-				<label><a href="/webapp/navigation?link=cities">Cities</a></label>
-				
+				<button><a href="/webapp/navigation?link=cities">Cities</a></button>
+				<button><a href="/webapp/navigation?link=manufacturers">Manufacturers</a></button>
+				<button><a href="/webapp/navigation?link=products">Products</a></button>
+				<br/>
 				<button type="submit" value="logout" name="logout">Log Out</button>	
 			</form>
 		

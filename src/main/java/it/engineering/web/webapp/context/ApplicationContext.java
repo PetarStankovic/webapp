@@ -9,12 +9,10 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import it.engineering.web.webapp.model.City;
+import it.engineering.web.webapp.model.Manufacturer;
+import it.engineering.web.webapp.model.Product;
 import it.engineering.web.webapp.model.User;
 
-/**
- * Application Lifecycle Listener implementation class ApplicationContext
- *
- */
 @WebListener("Configuration")
 public class ApplicationContext implements ServletContextListener {
 
@@ -39,11 +37,32 @@ public class ApplicationContext implements ServletContextListener {
 		System.out.println("SERVER: Initial users added.");
 
 		// copyonwritearraylist - multithreading mag petar stankovic, salim se, blam
+		City city1 = new City(11000, "Beograd");
+		City city2 = new City(21000, "Novi Sad");
+		City city3 = new City(15000, "Sabac");
 		List<City> cities = new CopyOnWriteArrayList<>();
-		cities.add(new City(11000, "Beograd"));
-		cities.add(new City(21000, "Novi Sad"));
-		cities.add(new City(21000, "Sabac"));
+		cities.add(city1);
+		cities.add(city2);
+		cities.add(city3);
 		System.out.println("SERVER: Initial cities added.");
+
+		Manufacturer manufacturer1 = new Manufacturer(5500, 2908978710063L, "Burmeister", "Cara Dusana 67", city1);
+		Manufacturer manufacturer2 = new Manufacturer(6600, 1311978710062L, "Marantz", "Cara Urosa 67", city1);
+		Manufacturer manufacturer3 = new Manufacturer(7700, 1709978510064L, "Sonus Faber", "Despota Stefana 67", city2);
+		List<Manufacturer> manufactuers = new CopyOnWriteArrayList<>();
+		manufactuers.add(manufacturer1);
+		manufactuers.add(manufacturer2);
+		manufactuers.add(manufacturer3);
+		System.out.println("SERVER: Initial manufacturers added.");
+
+		Product product1 = new Product(100, "Speakers1", 1200.0, "pair", "euro", manufacturer1);
+		Product product2 = new Product(100, "Headphones1", 600.0, "pair", "dollar", manufacturer2);
+		Product product3 = new Product(100, "Amplifier1", 1400.0, "unit", "euro", manufacturer3);
+		List<Product> products = new CopyOnWriteArrayList<>();
+		products.add(product1);
+		products.add(product2);
+		products.add(product3);
+		System.out.println("SERVER: Initial products added.");
 
 		sce.getServletContext().setAttribute("cities", cities);
 		sce.getServletContext().setAttribute("users", users);
