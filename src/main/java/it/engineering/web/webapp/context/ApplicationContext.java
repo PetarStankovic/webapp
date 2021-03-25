@@ -39,6 +39,7 @@ public class ApplicationContext implements ServletContextListener {
 		List<City> cities = new ArrayList<>();
 		cities.add(new City(11000, "Beograd"));
 		cities.add(new City(21000, "Novi Sad"));
+		cities.add(new City(21000, "Sabac"));
 		
 		sce.getServletContext().setAttribute("cities", cities);
 		sce.getServletContext().setAttribute("users", users);
