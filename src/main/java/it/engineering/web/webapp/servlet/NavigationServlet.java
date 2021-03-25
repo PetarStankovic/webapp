@@ -1,7 +1,6 @@
 package it.engineering.web.webapp.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,11 +28,18 @@ public class NavigationServlet extends HttpServlet {
 				page = "login.jsp";
 				break;
 			default:
+				page="error.jsp";
+				System.out.println("SERVER: User tried to navigate to wrong link.");
 				request.setAttribute("message", "Wrong link!");
+				break;
 			}
 		} else {
-			request.setAttribute("message", "Nije prosledjen parametar link...");
+			page="error.jsp";
+			System.out.println("SERVER: No link parameter found.");
+			request.setAttribute("message", "No link parameter found!");
 		}
+		
+		System.out.println("SERVER: User navigated to " + page + " successfully.");
 		request.getRequestDispatcher(page).forward(request, response);
 	}
 }

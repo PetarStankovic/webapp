@@ -33,7 +33,7 @@
 			
 				<label>
 					<%
-						Object result = request.getAttribute("result");
+						Object result = request.getAttribute("message");
 						if(result!=null){
 							out.println(result);
 						}else{
