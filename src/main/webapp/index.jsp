@@ -18,10 +18,10 @@
 		<header>
 				<nav>
 					<ul id="nav-list">
-						<li><a href="index.jsp">Home</a></li>
+						<li><a href="/webapp/navigation?link=home">Home</a></li>
 						<li><a href="#">Contact</a></li>
 						<li><a href="#">About</a></li>
-						<li><a href="login.jsp">Log In</a></li>
+						<li><a href="/webapp/navigation?link=login">Log In</a></li>
 					</ul>
 				</nav>			
 		</header>	

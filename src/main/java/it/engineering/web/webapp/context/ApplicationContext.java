@@ -7,6 +7,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import it.engineering.web.webapp.model.City;
 import it.engineering.web.webapp.model.User;
 
 /**
@@ -35,6 +36,11 @@ public class ApplicationContext implements ServletContextListener {
 		users.add(new User("Petar", "petar@gmail.com", "petar123"));
 		users.add(new User("Zorana", "zorana@gmail.com", "zorana123"));
 
+		List<City> cities = new ArrayList<>();
+		cities.add(new City(11000, "Beograd"));
+		cities.add(new City(21000, "Novi Sad"));
+		
+		sce.getServletContext().setAttribute("cities", cities);
 		sce.getServletContext().setAttribute("users", users);
 	}
 

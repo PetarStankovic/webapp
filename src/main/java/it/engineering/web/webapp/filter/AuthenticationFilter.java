@@ -19,7 +19,6 @@ public class AuthenticationFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-
 	}
 
 	@Override
@@ -27,12 +26,10 @@ public class AuthenticationFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String path = req.getRequestURI().substring(req.getContextPath().length());
 		if (path.equals("/login.jsp") || path.equals("/login")) {
-			// OK, further processing
 			chain.doFilter(request, response);
 		} else {
 			HttpSession session = req.getSession();
 			User user = (User) session.getAttribute("engineering_user");
-
 			if (user == null) {
 				req.getRequestDispatcher("/login.jsp").forward(request, response);
 			} else {
@@ -44,7 +41,6 @@ public class AuthenticationFilter implements Filter {
 
 	@Override
 	public void destroy() {
-
 	}
 
 }
