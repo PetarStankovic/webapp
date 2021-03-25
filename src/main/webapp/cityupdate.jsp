@@ -9,7 +9,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Cities Page</title>
+	<title>Update City Page</title>
 	<link type="text/css" rel="stylesheet" href="resources/css/style.css" />
 </head>
 
@@ -29,50 +29,18 @@
 		
 		<main class="main-login">	
 			
+			<h1>${engineering_user.username}, you can update the city here:</h2>
 			
-			<c:if test ="${cities.size() > 0}">	
-			<h1>${engineering_user.username}, here is the list of cities:</h2>		
-			<div id="cities"> 
-				<table>
-					<tr> 
-						<td style="display:none;" >Index</td> 	
-    					<td>Postal Code</td> 
-  						<td>Name</td>
-  						<td>Delete City</td>
-  						<td>Update City</td>
-  					</tr> 
-					<c:forEach items="${cities}" var="city" varStatus="loop">  
- 					<tr> 
- 						<td style="display:none;" >${loop.index}</td>
-    					<td>${city.postCode}</td> 
-  						<td>${city.name}</td>
-  												
-  						
-  						<c:url value="/cityDelete" var="urlDelete">
-							<c:param name="index" value="${loop.index}"></c:param>
-						</c:url>
-						<td>
-							<a href="${urlDelete}">Delete</a href>
-						</td>
-						
-						<c:url value="/city" var="urlUpdate">
-							<c:param name="index" value="${loop.index}"></c:param>
-						</c:url>
-						<td>
-							<a href="${urlUpdate}">Update</a href>
-						</td>
-  					</tr> 
-					</c:forEach> 	
-				</table>
+			<form name="city-form" method="post" action="cityadd">
+			
+				<label for="postCode">Postal Code:</label>
+				<input type="number" name="postCode"/>
 				
-				<form name="cityadd-form">
-					<button type="submit" value="add" name="add"><a href="/webapp/navigation?link=cityadd">Add City</a></button>
-				</form>
-			</div>
-			</c:if>		
-			
-			<form name="back">
-					<button type="submit" value="back" name="back"><a href="/webapp/navigation?link=home">Back to Home Page</a></button>
+				<label for="name" >City Name:</label>
+				<input type="text" name="name"/>
+				
+				<button type="submit" value="add" name="add">Add City</button>				
+				
 			</form>	
 		</main>	
 		

@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-		System.out.println("SERVER: User trying to log in with  email: " + email + "  password: " + password);
+		System.out.println("SERVER: User trying to log in with Email: " + email + " Password: " + password);
 
 		boolean found = false;
 		List<User> users = (List<User>) getServletContext().getAttribute("users");
