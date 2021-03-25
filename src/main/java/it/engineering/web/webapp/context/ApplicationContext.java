@@ -49,10 +49,10 @@ public class ApplicationContext implements ServletContextListener {
 		Manufacturer manufacturer1 = new Manufacturer(5500, 2908978710063L, "Burmeister", "Cara Dusana 67", city1);
 		Manufacturer manufacturer2 = new Manufacturer(6600, 1311978710062L, "Marantz", "Cara Urosa 67", city1);
 		Manufacturer manufacturer3 = new Manufacturer(7700, 1709978510064L, "Sonus Faber", "Despota Stefana 67", city2);
-		List<Manufacturer> manufactuers = new CopyOnWriteArrayList<>();
-		manufactuers.add(manufacturer1);
-		manufactuers.add(manufacturer2);
-		manufactuers.add(manufacturer3);
+		List<Manufacturer> manufacturers = new CopyOnWriteArrayList<>();
+		manufacturers.add(manufacturer1);
+		manufacturers.add(manufacturer2);
+		manufacturers.add(manufacturer3);
 		System.out.println("SERVER: Initial manufacturers added.");
 
 		Product product1 = new Product(100, "Speakers1", 1200.0, "pair", "euro", manufacturer1);
@@ -63,9 +63,13 @@ public class ApplicationContext implements ServletContextListener {
 		products.add(product2);
 		products.add(product3);
 		System.out.println("SERVER: Initial products added.");
-
-		sce.getServletContext().setAttribute("cities", cities);
+		
+		
 		sce.getServletContext().setAttribute("users", users);
+		sce.getServletContext().setAttribute("cities", cities);
+		sce.getServletContext().setAttribute("manufacturers", manufacturers);
+		sce.getServletContext().setAttribute("products", products);
+		
 	}
 
 }

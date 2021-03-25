@@ -30,7 +30,7 @@
 		<main class="main-login"> <c:if test="${cities.size() > 0}">
 			<h1>${engineering_user.username},
 				here is the list of cities:
-				</h2>
+				</h1>
 				<div id="cities">
 					<table>
 						<tr>
