@@ -39,6 +39,12 @@ public class NavigationServlet extends HttpServlet {
 			case "manufactureradd":
 				page = "manufactureradd.jsp";
 				break;
+			case "products":
+				page = "products.jsp";
+				break;
+			case "productadd":
+				page = "productadd.jsp";
+				break;
 			default:
 				page="error.jsp";
 				System.out.println("SERVER: User tried to navigate to wrong link.");

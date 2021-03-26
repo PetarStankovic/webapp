@@ -32,14 +32,14 @@
 			<h1>${engineering_user.username}, you can update the city here:</h2>
 			
 			<form name="city-form" method="post" action="cityupdate">
-			
+				
 				<label for="postCode">Postal Code:</label>
 				<input type="number" name="postCode"/>
 				
 				<label for="name" >City Name:</label>
 				<input type="text" name="name"/>
 				
-				<button type="submit" value="add" name="add">Add City</button>				
+				<button type="submit">Update City</button>				
 				
 			</form>	
 		</main>	

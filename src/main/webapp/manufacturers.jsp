@@ -27,7 +27,7 @@
 			</nav>
 		</header>
 
-		<main class="main-login"> <c:if test="${cities.size() > 0}">
+		<main class="main-login"> <c:if test="${manufacturers.size() > 0}">
 			<h1>${engineering_user.username}, here is the list of manufacturers:</h1>
 				<div id="manufacturers">
 					<table>
