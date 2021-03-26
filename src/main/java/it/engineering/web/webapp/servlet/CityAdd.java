@@ -3,7 +3,6 @@ package it.engineering.web.webapp.servlet;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.servlet.ServletException;
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.engineering.web.webapp.model.City;
 
+@SuppressWarnings("unchecked")
 @WebServlet(urlPatterns = { "/cityadd" })
 public class CityAdd extends HttpServlet {
 
@@ -38,16 +38,17 @@ public class CityAdd extends HttpServlet {
 
 			City city = new City(postcode, name);
 
-			// provera da se ne ubace dva ista grada
 			boolean validation = true;
+
 			for (City c : cities) {
 				if (city.getPostCode() == c.getPostCode()) {
 					validation = false;
 				}
 			}
+
 			if (validation) {
 				cities.add(city);
-				System.out.println("SERVER: User added a new city: " + city);
+				System.out.println("SERVER: User added: " + city);
 				req.setAttribute("cities", cities);
 				req.setAttribute("city", city);
 				req.getRequestDispatcher("/cities.jsp").forward(req, resp);

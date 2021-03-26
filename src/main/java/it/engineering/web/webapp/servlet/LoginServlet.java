@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import it.engineering.web.webapp.model.User;
 
+@SuppressWarnings("unchecked")
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 
@@ -25,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("SERVER: User trying to log in with Email: " + email + " Password: " + password);
 
 		boolean found = false;
+
 		List<User> users = (List<User>) getServletContext().getAttribute("users");
 		for (User user : users) {
 			if (user.getEmail().equals(email) && user.getPassword().equals(password)) {

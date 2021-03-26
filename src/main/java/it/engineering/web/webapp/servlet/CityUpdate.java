@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.engineering.web.webapp.model.City;
 
+@SuppressWarnings("unchecked")
 @WebServlet(urlPatterns = { "/cityUpdate" })
 public class CityUpdate extends HttpServlet {
 
@@ -35,13 +36,12 @@ public class CityUpdate extends HttpServlet {
 			}
 
 			City city = new City(postcode, name);
-
-			// provera da se ne ubace dva ista grada
 			for (City c : cities) {
 				if (city.getPostCode() == c.getPostCode()) {
 					cities.remove(c);
 				}
 			}
+
 			cities.add(city);
 			System.out.println("SERVER: User updated city: " + city);
 			req.setAttribute("cities", cities);

@@ -10,25 +10,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.engineering.web.webapp.model.City;
+import it.engineering.web.webapp.model.Manufacturer;
 
+@SuppressWarnings("unchecked")
 @WebServlet(urlPatterns = { "/cityDelete" })
 public class CityDelete extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		String indexParam = request.getParameter("indexCityDelete");
-		int index = Integer.parseInt(indexParam);
+		try {
+			String indexParam = req.getParameter("indexCityDelete");
+			int index = Integer.parseInt(indexParam);
 
-		List<City> list = (List<City>) request.getServletContext().getAttribute("cities");
+			List<Manufacturer> mList = (List<Manufacturer>) req.getServletContext().getAttribute("manufacturers");
+			List<City> cList = (List<City>) req.getServletContext().getAttribute("cities");
 
-		System.out.println("SERVER: Deleted " + list.get(index));
-		list.remove(index);
+			City tempCity = cList.get(index);
 
-		request.getRequestDispatcher("/navigation?link=cities").forward(request, response);
+			for (Manufacturer m : mList) {
+				if (m.getCity().getPostCode() == tempCity.getPostCode()) {
+					throw new Exception("There are manufacturers in that city. Cannot be deleted!");
+				}
+			}
+
+			System.out.println("SERVER: User deleted " + cList.get(index));
+			cList.remove(index);
+			req.getRequestDispatcher("/navigation?link=cities").forward(req, res);
+
+		} catch (Exception e) {
+			req.setAttribute("message", e.getMessage());
+			req.getRequestDispatcher("/error.jsp").forward(req, res);
+		}
 	}
 
 }
