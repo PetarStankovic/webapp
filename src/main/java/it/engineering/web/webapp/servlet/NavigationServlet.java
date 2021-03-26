@@ -33,6 +33,10 @@ public class NavigationServlet extends HttpServlet {
 			case "cityadd":
 				page = "cityadd.jsp";
 				break;
+			case "cityupdate":		
+				request.setAttribute("cityPC", request.getParameter("cityPostcode"));
+				page = "cityupdate.jsp";
+				break;
 			case "manufacturers":
 				page = "manufacturers.jsp";
 				break;

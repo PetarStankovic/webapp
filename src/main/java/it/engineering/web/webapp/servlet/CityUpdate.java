@@ -3,7 +3,6 @@ package it.engineering.web.webapp.servlet;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.servlet.ServletException;
@@ -14,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.engineering.web.webapp.model.City;
 
-@WebServlet(urlPatterns = { "/cityadd" })
-public class CityAdd extends HttpServlet {
+@WebServlet(urlPatterns = { "/cityUpdate" })
+public class CityUpdate extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +27,6 @@ public class CityAdd extends HttpServlet {
 				throw new InputMismatchException("Postcode in Serbia has 5 digits!");
 			}
 			int postcode = Integer.parseInt(pc);
-
 			String name = req.getParameter("name");
 
 			List<City> cities = (List<City>) req.getServletContext().getAttribute("cities");
@@ -39,22 +37,16 @@ public class CityAdd extends HttpServlet {
 			City city = new City(postcode, name);
 
 			// provera da se ne ubace dva ista grada
-			boolean validation = true;
 			for (City c : cities) {
 				if (city.getPostCode() == c.getPostCode()) {
-					validation = false;
+					cities.remove(c);
 				}
 			}
-			if (validation) {
-				cities.add(city);
-				System.out.println("SERVER: User added a new city: " + city);
-				req.setAttribute("cities", cities);
-				req.setAttribute("city", city);
-				req.getRequestDispatcher("/cities.jsp").forward(req, resp);
-			} else {
-				System.out.println("SERVER: User tried to add existing city");
-				throw new InputMismatchException("You tried to add city that already exists!");
-			}
+			cities.add(city);
+			System.out.println("SERVER: User updated city: " + city);
+			req.setAttribute("cities", cities);
+			req.setAttribute("city", city);
+			req.getRequestDispatcher("/cities.jsp").forward(req, resp);
 
 		} catch (Exception e) {
 			req.setAttribute("message", e.getMessage());

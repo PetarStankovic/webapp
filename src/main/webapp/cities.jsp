@@ -46,14 +46,13 @@
 								<td>${city.postCode}</td>
 								<td>${city.name}</td>
 
-
 								<c:url value="/cityDelete" var="urlDelete">
-									<c:param name="index" value="${loop.index}"></c:param>
+									<c:param name="indexCityDelete" value="${loop.index}"></c:param>
 								</c:url>
 								<td><a href="${urlDelete}">Delete</a href></td>
 
-								<c:url value="/city" var="urlUpdate">
-									<c:param name="index" value="${loop.index}"></c:param>
+								<c:url value="/navigation?link=cityupdate" var="urlUpdate">
+									<c:param name="cityPostcode" value="${city.postCode}"></c:param>
 								</c:url>
 								<td><a href="${urlUpdate}">Update</a href></td>
 							</tr>

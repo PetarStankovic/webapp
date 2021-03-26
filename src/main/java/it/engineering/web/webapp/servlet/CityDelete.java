@@ -20,7 +20,7 @@ public class CityDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String indexParam = request.getParameter("index");
+		String indexParam = request.getParameter("indexCityDelete");
 		int index = Integer.parseInt(indexParam);
 
 		List<City> list = (List<City>) request.getServletContext().getAttribute("cities");
